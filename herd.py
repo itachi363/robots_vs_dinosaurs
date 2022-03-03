@@ -9,5 +9,6 @@ class Herd:
         self.dinosaurs.append(dinosaur_one)
         dinosaur_two = Dinosaur("T-Rex", 30)
         self.dinosaurs.append(dinosaur_two)
-        dinosaur_three = Dinosaur("Pterodactyl" 15)
+        dinosaur_three = Dinosaur("pterodactyl", 15)
         self.dinosaurs.append(dinosaur_three)
+
