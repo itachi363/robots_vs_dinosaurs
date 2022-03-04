@@ -24,11 +24,17 @@ class Battlefield:
         self.battle_ongoing = True
         while self.battle_ongoing == True:
         
-            if self.herd.dinosaurs[0].health <= 0:
-                self.herd.dinosaurs.remove[0]
+            if len(self.herd.dinosaurs) == 0:
+                self.display_winners()
+
+            elif len(self.fleet.robots) == 0:
+                self.display_winners()
+
+            elif self.herd.dinosaurs[0].health <= 0:
+                self.herd.dinosaurs.remove(self.herd.dinosaurs[0])
             
             elif self.fleet.robots[0].health <= 0:
-                self.fleet.robots.remove[0]
+                self.fleet.robots.remove(self.fleet.robots[0])
 
             elif self.herd.dinosaurs[0].health >= 0:
                 self.dino_turn(self.herd.dinosaurs[0])
@@ -36,11 +42,6 @@ class Battlefield:
             elif self.fleet.robots[0].health >= 0:
                 self.robo_turn(self.fleet.robots[0])
 
-            elif len(self.herd.dinosaurs) == 0:
-                self.display_winners()
-
-            elif len(self.fleet.robots) == 0:
-                self.display_winners()
             else:
                 print("Error")
 
@@ -60,21 +61,19 @@ class Battlefield:
         robot.attack(self.herd.dinosaurs[0])
 
     def show_dino_opponent_options(self):
-        print("test1")
         pass
 
     def show_robo_opponant_options(self):
-        print("test2")
         pass
 
     def display_winners(self):
         if len(self.herd.dinosaurs) == 0:
-            self.battle_ongoing == False
             print("Robots win!!!")
+            self.battle_ongoing = False
 
         elif len(self.fleet.robots) == 0:
-            self.battle_ongoing == False
             print("Dinosaurs win!!!")
+            self.battle_ongoing = False
 
         else:
             print("Error")
