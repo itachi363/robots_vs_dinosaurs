@@ -23,6 +23,7 @@ class Battlefield:
     def battle(self):
         self.battle_ongoing = True
         while self.battle_ongoing == True:
+        
             if self.herd.dinosaurs[0].health <= 0:
                 self.herd.dinosaurs.remove[0]
             
@@ -46,6 +47,12 @@ class Battlefield:
     def dino_turn(self, dinosaur):
         self.dino_attack = dinosaur
         dinosaur -= self.fleet.robots[0].health
+
+        if self.fleet.robots[0].health >= 0:
+            self.robo_turn(self.fleet.robots[0].weapon.attack_power)
+        
+        else:
+            self.battle()
 
     def robo_turn(self, robot):
         self.robo_attack = robot
