@@ -12,4 +12,3 @@ class Fleet:
         self.robots.append(robot_two)
         robot_three = Robot("Charles")
         self.robots.append(robot_three)
-

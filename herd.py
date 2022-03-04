@@ -3,6 +3,7 @@ from dinosaur import Dinosaur
 class Herd:
     def __init__(self):
         self.dinosaurs = []
+        self.attack = Dinosaur
 
     def create_herd(self):
         dinosaur_one = Dinosaur("Velociraptor", 20)
@@ -11,4 +12,3 @@ class Herd:
         self.dinosaurs.append(dinosaur_two)
         dinosaur_three = Dinosaur("pterodactyl", 15)
         self.dinosaurs.append(dinosaur_three)
-
