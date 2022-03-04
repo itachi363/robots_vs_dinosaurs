@@ -31,10 +31,10 @@ class Battlefield:
                 self.fleet.robots.remove[0]
 
             elif self.herd.dinosaurs[0].health >= 0:
-                self.dino_turn(self.herd.dinosaurs[0].attack_power)
+                self.dino_turn(self.herd.dinosaurs[0])
             
             elif self.fleet.robots[0].health >= 0:
-                self.robo_turn(self.fleet.robots[0].weapoon.attack_power)
+                self.robo_turn(self.fleet.robots[0])
 
             elif len(self.herd.dinosaurs) == 0:
                 self.display_winners()
@@ -46,17 +46,18 @@ class Battlefield:
 
     def dino_turn(self, dinosaur):
         self.dino_attack = dinosaur
-        dinosaur -= self.fleet.robots[0].health
+        dinosaur.attack(self.fleet.robots[0])
+
 
         if self.fleet.robots[0].health >= 0:
-            self.robo_turn(self.fleet.robots[0].weapon.attack_power)
+            self.robo_turn(self.fleet.robots[0])
         
         else:
             self.battle()
 
     def robo_turn(self, robot):
         self.robo_attack = robot
-        robot -= self.herd.dinosaurs[0].health
+        robot.attack(self.herd.dinosaurs[0])
 
     def show_dino_opponent_options(self):
         print("test1")
