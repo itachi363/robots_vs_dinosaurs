@@ -37,28 +37,28 @@ class Battlefield:
                 self.fleet.robots.remove(self.fleet.robots[0])
 
             elif self.herd.dinosaurs[0].health >= 0:
-                self.dino_turn(self.herd.dinosaurs[0])
+                self.dino_turn(random.choice(self.herd.dinosaurs))
             
             elif self.fleet.robots[0].health >= 0:
-                self.robo_turn(self.fleet.robots[0])
+                self.robo_turn(random.choice(self.fleet.robots))
 
             else:
                 print("Error")
 
     def dino_turn(self, dinosaur):
         self.dino_attack = dinosaur
-        dinosaur.attack(self.fleet.robots[0])
+        dinosaur.attack(random.choice(self.fleet.robots))
 
 
         if self.fleet.robots[0].health >= 0:
-            self.robo_turn(self.fleet.robots[0])
+            self.robo_turn(random.choice(self.fleet.robots))
         
         else:
             self.battle()
 
     def robo_turn(self, robot):
         self.robo_attack = robot
-        robot.attack(self.herd.dinosaurs[0])
+        robot.attack(random.choice(self.herd.dinosaurs))
 
     def show_dino_opponent_options(self):
         pass
